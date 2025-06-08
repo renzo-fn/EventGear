@@ -1,16 +1,4 @@
 
-        .main {
-        background-image: url();
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        min-height: 70vh;
-        height:  calc(100% - 120px); 
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        padding: 5px;
-        }
         
         .Contenedor{
             display: grid;
