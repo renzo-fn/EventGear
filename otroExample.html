@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo</title>
+  <style>
+    .encabezado {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff8f0;
+    }
+
+    header {
+      background-color: black;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .contenedor-principal {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    aside {
+      width: 250px;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      position: fixed;
+      top: 120px;
+      height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+
+    aside h2 {
+      margin-top: 0;
+      padding-bottom: 10px;
+    }
+
+    aside a {
+      color: white;
+      display: block;
+      padding: 10px 0;
+      text-decoration: none;
+    }
+
+    aside a:hover {
+      background-color: #444;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      margin-left: 250px;
+    }
+    
+
+    .catalogo-categoria {
+      margin-bottom: 50px;
+    }
+
+    .catalogo-categoria h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      margin-left: 20px;
+    }
+
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .producto {
+      width: 250px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .producto img {
+      width: 80%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .producto h3 {
+      margin: 10px 0 5px;
+    }
+
+    .producto p {
+      font-size: 14px;
+      padding: 0 10px;
+      margin: 0 0 10px;
+    }
+
+    .producto button {
+      background-color: #fcbf99;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .producto button:hover {
+      background-color: #e6a87d;
+    }
+
+    footer {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+
+    .catalogo-categoria {
+  position: relative;
+  padding-top: 120px; 
+  margin-top: -100px; 
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="encabezado">
+    <h1>Catálogo</h1>
+    </div>
+  </header>
+
+  <div class="contenedor-principal">
+    <aside>
+      <h2>Categorías</h2>
+      <a href="#sonido">Sonido</a>
+      <a href="#luces">Luces y efectos</a>
+      <a href="#pantallasled">Pantallas LED</a>
+      <a href="#escenarios">Escenarios y estructuras</a>
+      <a href="#paquetes">Paquetes para fiestas</a>
+      <a href="#eventos">Eventos</a>
+    </aside>
+    <main>
+      <section id=sonido class="catalogo-categoria">
+        <h2>Sonido</h2>
+        <div class="productos">
+          <div class="producto" data-precio="150">
+            <img src="https://e2peru.com/wp-content/uploads/2022/10/815-1-300x300.jpg" alt="Producto">
+            <h3>Parlante amplificado profesional JBL PRX 815</h3>
+            <p>S/150 / día</p>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
+          </div>
+          <div class="producto" data-precio="100">
+            <img src="https://e2peru.com/wp-content/uploads/2023/10/zedi10-1-300x300.png" alt="Producto">
+            <h3>Mixer híbrido Allen & Heath ZEDi-10</h3>
+            <p>S/100 / día</p>
+            <button onclick="addToCart(100)">Agregar al carrito</button>
+          </div>
+        </div>
+         <div id="total">Total acumulado: $0.00</div>
+    <button id="finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+      </section>
+    </main>
+  </div>
+  <footer>
+    <p>&copy; 2025 EventGear. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    let total = 0;
+
+    function addToCart(precio) {
+      total += precio;
+      document.getElementById('total').textContent = `Total acumulado: $${total.toFixed(2)}`;
+    }
+
+    function finalizarCompra() {
+      alert("El total de su compra es: S/" + total);
+      total = 0; 
+        localStorage.setItem('totalCompra', total.toFixed(2));
+
+        window.location.href = 'calcularMontoFinal.html'
+    }
+  </script>
+
+</body>
+</html>

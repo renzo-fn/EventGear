@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Trabajadores</title>
+    <style>
+        body {
+             display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        
+
+        .sidebar {
+            width: 250px;
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+    .sidebar ul li {
+            margin: 15px 0;
+        }
+
+    .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px;
+        }
+
+    .sidebar ul li a:hover {
+            background-color: #444;
+        }
+
+        .vista {
+            display: none;
+        }
+
+    .vista.active {
+            display: block;
+        }
+
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .actions button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3b82f6;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .actions button:hover {
+            background-color: #2c6ed5;
+        }
+
+        .form-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .form-popup.active {
+            display: block;
+        }
+
+        .form-popup form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-popup input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .form-popup button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3b82f6;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .form-popup button:hover {
+            background-color: #2c6ed5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+    <h2>EventGear</h2>
+    <ul>
+            <li><a href="#" onclick="mostrarVista('vista-Dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="mostrarVista('vista-Trabajadores')">Trabajadores</a></li>
+            <li><a href="#" onclick="mostrarVista('vista-Productos')">Productos</a></li>
+        </ul>
+    </div>
+
+
+    <div id="vista-Trabajadores" class="vista">
+        <h1>Gestión de Trabajadores</h1>
+        <div class="actions">
+            <button onclick="mostrarFormulario('agregar')">Agregar Trabajador</button>
+            <button onclick="mostrarFormulario('editar')">Editar Trabajador</button>
+            <button onclick="mostrarFormulario('eliminar')">Eliminar Trabajador</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>DNI</th>
+                    <th>Teléfono</th>
+                    <th>Fecha de Contratación</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-trabajadores">
+                <tr>
+                    <td>Juan Pérez</td>
+                    <td>juan.perez@example.com</td>
+                    <td>12345678</td>
+                    <td>+51 987 654 321</td>
+                    <td>2022-01-15</td>
+                </tr>
+                <tr>
+                    <td>María López</td>
+                    <td>maria.lopez@example.com</td>
+                    <td>87654321</td>
+                    <td>+51 912 345 678</td>
+                    <td>2021-05-20</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div id="form-agregar" class="form-popup">
+        <form onsubmit="return agregarTrabajador();">
+            <h2>Agregar Trabajador</h2>
+            <input type="text" id="agregar-nombre" placeholder="Nombre" required>
+            <input type="email" id="agregar-correo" placeholder="Correo" required>
+            <input type="text" id="agregar-dni" placeholder="DNI" required>
+            <input type="text" id="agregar-telefono" placeholder="Teléfono" required>
+            <input type="date" id="agregar-fecha" required>
+            <button type="submit">Agregar</button>
+            <button type="button" onclick="cerrarFormulario('agregar')">Cancelar</button>
+        </form>
+    </div>
+
+    <div id="form-editar" class="form-popup">
+        <form onsubmit="return editarTrabajador();">
+            <h2>Editar Trabajador</h2>
+            <input type="text" id="editar-nombre-actual" placeholder="Nombre Actual" required>
+            <input type="text" id="editar-nombre" placeholder="Nuevo Nombre">
+            <input type="email" id="editar-correo" placeholder="Nuevo Correo">
+            <input type="text" id="editar-dni" placeholder="Nuevo DNI">
+            <input type="text" id="editar-telefono" placeholder="Nuevo Teléfono">
+            <input type="date" id="editar-fecha">
+            <button type="submit">Editar</button>
+            <button type="button" onclick="cerrarFormulario('editar')">Cancelar</button>
+        </form>
+    </div>
+
+    <div id="form-eliminar" class="form-popup">
+        <form onsubmit="return eliminarTrabajador();">
+            <h2>Eliminar Trabajador</h2>
+            <input type="text" id="eliminar-nombre" placeholder="Nombre" required>
+            <button type="submit">Eliminar</button>
+            <button type="button" onclick="cerrarFormulario('eliminar')">Cancelar</button>
+        </form>
+    </div>
+
+    <script>
+        function mostrarVista(vistaId) {
+            document.querySelectorAll('.vista').forEach(vista => {
+                vista.classList.remove('active');
+            });
+            document.getElementById(vistaId).classList.add('active');
+        }
+
+    </script>
+
+    <script src="jss/trabajador.js"></script>
+</body>
+</html>

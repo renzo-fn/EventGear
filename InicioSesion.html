@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesion</title>
+    <link rel="stylesheet" href="css/InicioSesion.css">
+    <link rel="stylesheet" href="css/header.css">
+
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: #222;
+        }
+
+        .login {
+            display: flex;
+            justify-content: center;
+            padding-top: 9em;
+            padding-bottom: 10em;
+            letter-spacing: 2px;
+        }
+
+        .contenedor {
+            width: 400px;
+            height: 450px;
+            border: 3px solid black;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 700;
+        }
+
+        form {
+            margin-top: 1.5rem;
+        }
+
+        .input-group {
+            margin-top: 0.25rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            padding: 0 15px;
+        }
+
+        .input-group label {
+            display: block;
+            color: rgba(156, 163, 175, 1);
+            margin-bottom: 4px;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            border-radius: 0.375rem;
+            border: 1px solid #f2f4f4;
+            outline: 0;
+            background-color: white;
+            padding: 0.75rem 1rem;
+            color: black;
+        }
+
+        .registro a {
+            color: blue;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .registro a:hover {
+            text-decoration: underline #e91e63;
+        }
+
+        .login-btn {
+            width: 100%;
+            background-color: #e91e63;
+            padding: 0.75rem;
+            text-align: center;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 600;
+        }
+
+        .registro {
+            text-align: center;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="EventGear.html">
+            <img id="logo" src="logo.png" alt="EVENTGEAR" class="logo">
+        </a>
+    </div>
+    <nav>
+        <ul class="menu_items">
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="Catálogo.html">Catálogo</a></li>
+            <li><a href="LibroReclamaciones.html">Libro de Reclamaciones</a></li>
+        </ul>
+    </nav>
+
+    <div class="Inicio">
+        <a href="InicioSesion.html">Iniciar Sesion</a>
+    </div>
+</header>
+
+<div class="login">
+    <div class="contenedor">
+        <h2 class="title"> Bienvenido</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" required>
+            </div>
+            <div class="input-group">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" id="contraseña" name="contraseña" placeholder="Introduzca su contraseña" required>
+            </div>
+            <div class="input-group">
+                <label for="rol">Rol</label>
+                <select id="rol" name="rol">
+                    <option id="cliente" value="cliente">Cliente</option>
+                    <option id="administrador" value="administrador">Administrador</option>
+                </select>
+            </div>
+            <br>
+            <button type="submit" class="login-btn">Iniciar Sesion</button>
+        </form>
+        <br>
+        <p class="registro">¿No tienes una cuenta? <a href="Registro.html">Registrate</a></p>
+    </div>
+</div>
+
+<script src="jss/login.js"></script>
+</script>
+</body>
+</html>

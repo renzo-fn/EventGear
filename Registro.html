@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="css/header.css">
+</head>
+
+<style>
+
+    body{
+        background-color: #222;
+    }
+
+.regis{
+  display: flex;
+  justify-content: center;
+  padding-top: 7em;
+  padding-bottom: 10em;
+  letter-spacing: 2px;
+}
+.form{
+  width: 500px;
+  height: 700px;
+  border: 3px solid black; 
+  padding: 20px; 
+  border-radius: 10px; 
+  background-color: white; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333333; 
+  margin-bottom: 10px;
+}
+.message {
+  font-size: 14px;
+  color: #666666; 
+  margin-bottom: 20px;
+}
+label {
+  display: block;
+  margin-bottom: 15px;
+  position: relative;
+}
+.input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #cccccc; 
+  border-radius: 5px;
+  background-color: #f8f8f8; 
+  font-size: 14px;
+}
+
+.input:focus {
+  border-color: #6a95ff; 
+  outline: none;
+}
+.submit {
+  width: 100%;
+  padding: 10px;
+  background-color: #e91e63; 
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.submit:hover {
+  background-color: #7a5ed1;
+}
+.signin {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666666;
+}
+.signin a {
+  color: #e91e63; 
+  text-decoration: none;
+  font-weight: bold;
+}
+
+</style>
+<body>
+    <header>
+        <div class="logo">
+        <a href="http://127.0.0.1:5500/EventGear.html">
+            <img id="logo" src="logo.png" alt="EVENTGEAR" class="logo">
+        </a>
+        </div>
+        <nav>
+        <ul class="menu_items">
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="Catálogo.html">Catálogo</a></li>
+            <li><a href="LibroReclamaciones.html">Libro de Reclamaciones</a></li>
+          </ul>
+        </nav>
+        
+        <div class="Inicio">
+            <a href="InicioSesion.html">Iniciar Sesion</a>
+        </div>
+    </header>
+
+    
+    <div class="regis">
+    <form class="form">
+        <p class="title">Registro </p>
+            <div class="flex">
+            <label>
+                <span>Nombres</span>
+                <input required="" placeholder="" type="text" id="nombres" class="input">
+            </label>
+    
+            <label>
+                <span>Apellidos</span>
+                <input required="" placeholder="" type="text" id="apellidos" class="input">
+                
+            </label>
+        </div>  
+                
+        <label>
+            <span>Correo</span>
+            <input required="" placeholder="" type="email" id="correo" class="input">
+            
+        </label> 
+            
+        <label>
+            <span>Contraseña</span>
+            <input required="" placeholder="" type="password" id="contraseña" class="input">
+            
+        </label>
+        <label>
+            <span>Confirmar Contraseña</span>
+            <input required="" placeholder="" type="password" id="confirmarContraseña" class="input">
+            <br>
+        <label>
+            <span>DNI</span>
+            <input required="" placeholder="" type="numbre" id="dni" class="input">
+            <br>
+        </label>
+        <label>
+            <span>RUC</span>
+            <input required="" placeholder="" type="text" id="ruc" class="input">
+            <br>
+        </label>
+        <button type="button" class="submit" onclick="registrarUsuario()">Registrarse</button>
+        <p class="signin">¿Tienes una cuenta? <a href="InicioSesion.html">Iniciar Sesión</a> </p>
+    </form>
+</div>
+
+<script src="jss/registro.js"></script>
+    
+</body>
+</html>
