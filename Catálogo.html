@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Catálogo</title>
   <link rel="stylesheet" href="css/Catalogo.css">
+  <link rel="stylesheet" href="css/calcularTotal.css">
 </head>
 <body>
-
   <header>
     <div class="encabezado">
     <h1>Catálogo</h1>
@@ -27,6 +27,9 @@
     <main>
       <section id=sonido class="catalogo-categoria">
         <h2>Sonido</h2>
+        <div id="total">Total acumulado: $0.00</div>
+          <button onclick="finalizarCompra()">Finalizar Compra</button>
+        
         <div class="productos">
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2022/10/815-1-300x300.jpg" alt="Producto">
@@ -39,7 +42,7 @@
               <li>Control por app WiFi</li>
             </p>
             <p>S/150 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/10/zedi10-1-300x300.png" alt="Producto">
@@ -53,7 +56,7 @@
              <li>Phantom power de +48V</li>
             </p>
             <p>S/100 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(100)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2024/10/600-1-300x300.jpg" alt="Producto">
@@ -68,7 +71,7 @@
               <li>Cuerpo de aluminio negro mate</li>
             </p>
             <p>S/100 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(100)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/10/yamaha3-300x300.png" alt="Producto">
@@ -81,7 +84,7 @@
               <li>Procesadores de efectos duales de alta calidad: REV-X avanzado y el clásico SPX</li>
             </p>
             <p>S/200 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(200)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2022/04/shure-sm58-inalambrico-300x300.png" alt="Producto">
@@ -93,7 +96,7 @@
               <li>Requiere 2 pilas AA no incluidas</li>
             </p>
             <p>S/80 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(80)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2018/10/sony_uwp_d11-800x800-300x300.jpg" alt="Producto">
@@ -104,7 +107,7 @@
               <li>Construcción en aluminio</li>
             </p>
             <p>S/80 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(80)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2024/02/zoom-kit1-300x300.png" alt="Producto">
@@ -116,7 +119,7 @@
               <li>Audífono Zoom ZHP-1 con diadema autoajustable y cable desmontable</li>
             </p>
             <p>S/50 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(50)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2018/10/f8-FB-300x300.jpg" alt="Producto">
@@ -130,7 +133,7 @@
               <li>App IOS para manejo a distancia (bluetooth)</li>
             </p>
             <p>S/120 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(120)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2024/02/m2-1-300x300.png" alt="Producto">
@@ -142,7 +145,7 @@
               <li>Accesorios magnéticos para mayor versatilidad</li>
             </p>
             <p>S/80 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(80)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/10/at2035-2-300x300.png" alt="Producto">
@@ -154,7 +157,7 @@
               <li>Capacidad para manejar elevados niveles SPL y amplia gama dinámica que proporciona una versatilidad inigualable</li>
             </p>
             <p>S/80 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(80)">Agregar al carrito</button>
           </div>
         </div>
       </section>
@@ -178,7 +181,7 @@
               <li>Incluye adaptador AC</li>
             </p>
             <p>S/50 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(50)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/11/m20c-1-300x300.png" alt="Producto">
@@ -191,7 +194,7 @@
               <li>Funciones CCT, HSI, RGB, Fx (16 efectos), Music</li>
             </p>
             <p>S/50 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(50)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/04/mt-pro-1-300x300.jpg" alt="Producto">
@@ -206,7 +209,7 @@
               <li>Construcción en aluminio, longitud de 1’=30,5cm</li>
             </p>
             <p>S/80 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(80)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2021/10/c120d-ii.jpg" alt="Producto">
@@ -221,7 +224,7 @@
               <li>Control inalámbrico 2.4GHz o por DMX512</li>
             </p>
             <p>S/120 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(120)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2019/01/al-f7-300x300.jpg" alt="Producto">
@@ -234,7 +237,7 @@
               <li>Incluye zapata de rótula</li>
             </p>
             <p>S/ 30 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(30)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2021/10/octobox-300x300.jpg" alt="Producto">
@@ -245,7 +248,7 @@
               <li>Montura Bowens</li>
             </p>
             <li>S/20 / día</li>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(20)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2021/11/mc-1-300x300.jpg" alt="Producto">
@@ -257,7 +260,7 @@
               <li>Imanes al reverso para colocarlo en cualquier superficie metálica sin necesidad de accesorios</li>
             </p>
             <p>S/30 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(30)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2021/10/softbox-80-x-120-300x300.jpg" alt="Producto">
@@ -269,7 +272,7 @@
               <li>Montura Bowens</li>
             </p>
             <p>S/15 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2019/01/yn600-RGB-500x500-300x300.png" alt="Producto">
@@ -281,7 +284,7 @@
               <li>Incluye fuentes AC, parantes y soportes</li>
             </p>
             <p>S/150 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/04/tl60-1-300x300.jpg" alt="Producto">
@@ -296,7 +299,7 @@
               <li>Función continua con fuente externa (incluída)</li>
             </p>
             <p>S/200 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(200)">Agregar al carrito</button>
           </div>
         </div>
       </section>
@@ -316,8 +319,8 @@
               <li>Ultraligero y delgado</li>
               <li>Módulo LED P3-P15, paneles y pantallas disponibles</li>
             </p>
-            <p>S/1,290 - S/3,800 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/2,600 / día</p>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://www.visionledpro.com/uploads/image/67b6e535b1165.png" alt="Producto">
@@ -331,8 +334,8 @@
               <li>Amplio ángulo de visión y alta frecuencia de actualización</li>
               <li>Módulo LED P3.91/P4.81/P5.95, paneles y pantallas disponibles</li>
             </p>
-            <p>S/3,800 - S/8,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/6,000 / día</p>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://www.visionledpro.com/uploads/image/67de0ef67c87a.png" alt="Producto">
@@ -345,8 +348,8 @@
               <li>Montado en la pared sin soporte de estructura de acero.</li>
               <li>Módulo LED P6/P8/P10, paneles y pantallas disponibles</li>
             </p>
-            <p>S/5,000 - S/10,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/7,500 / día</p>
+            <button onclick="addToCart(7500)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://www.visionledpro.com/uploads/image/5ef070c7c335c.jpg" alt="Producto">
@@ -358,8 +361,8 @@
               <li>4: Relación 3</li>
               <li>P1.667/P1.86/P2/P.25 Módulo LED y paneles y pantallas disponibles</li>
             </p>
-            <p>S/7,000 - S/15,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/11,000 / día</p>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://www.visionledpro.com/uploads/image/6437d3d005717.jpg" alt="Producto">
@@ -373,8 +376,8 @@
               <li>Instalación flexible</li>
               <li>Más de 10000 pruebas de flexión para garantizar la calidad para el usuario final.</li>
             </p>
-            <p>S/10,000 - S/20,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/15,000 / día</p>
+            <button onclick="addToCart(15000)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://www.visionledpro.com/uploads/image/5eec6832ec555.jpg" alt="Producto">
@@ -387,8 +390,8 @@
               <li>Mantenimiento frontal completo compatible para ahorrar espacio de instalación</li>
               <li>Módulo LED P6/P8/P10, paneles y pantallas disponibles</li>
             </p>
-            <p>S/5,000 - S/8,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/7,000 / día</p>
+            <button onclick="addToCart(7000)">Agregar al carrito</button>
           </div>
         </div>
       </section>
@@ -404,8 +407,8 @@
               <li>Festivales</li>
               <li>Eventos masivos</li>
             </p>
-            <p>S/15,000 - S/30,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/24,000 / día</p>
+            <button onclick="addToCart(24000)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://www.estructural.pe/hadmin/images/66630443_2398201113596893_1255858788221583360_n.jpg" alt="Producto">
@@ -417,8 +420,8 @@
               <li>Iluminación</li>
               <li>O elementos decorativos específicos</li>
             </p>
-            <p>S/2,500 - S/8,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/6,000 / día</p>
+            <button onclick="addToCart(6000)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://lh3.googleusercontent.com/proxy/nYtMncpGqS48mVdHva2-i_wB5--5fg3jgsN5SaKEyRndqWHGxP7zPeLu0X3yng4H05uYzuENlEM-MASCZlqwzJiRFKQ" alt="Producto">
@@ -431,8 +434,8 @@
               <li>Iluminación profesional</li>
               <li>Mobiliario específico</li>
             </p>
-            <p>S/2,500 - S/6,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/4,500 / día</p>
+            <button onclick="addToCart(4500)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://www.paladareventos.com/imagenesdb/pasarela-de-moda-2009-enmoquetada-y-ambientacion-de-sala-web.jpg" alt="Producto">
@@ -446,8 +449,8 @@
               <li>Iluminación profesional</li>
               <li>Requirimientos de ingeniería</li>
             </p>
-            <p>S/10,000 - S/30,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/20,000 / día</p>
+            <button onclick="addToCart(20000)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://delfineventos.com/Imagenes/tabladillos/pista%20de%20baile%20%281%29.jpeg" alt="Producto">
@@ -455,8 +458,8 @@
             <p>
               <li>Pista de 20 m²</li>
             </p>
-            <p>S/4,000 - S/12,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/8,000 / día</p>
+            <button onclick="addToCart(8000)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://cdn0.matrimonio.com.pe/vendor/8078/3_2/640/jpg/426698-103595239769717-1675953580-n_11_108078.jpeg" alt="Producto">
@@ -468,8 +471,8 @@
               <li>Climatización</li>
               <li>Para cientos o miles de personas</li>
             </p>
-            <p>S/5,000 - S/15,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/10,000 / día</p>
+            <button onclick="addToCart(10000)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://i.pinimg.com/736x/b2/d5/01/b2d501329066cfb858edce5af8ab02f8.jpg" alt="Producto">
@@ -480,8 +483,8 @@
               <li>Iluminación</li>
               <li>Espacio para juegos/shows</li>        
             </p>
-            <p>S/1,000 - S/3,000 / día</p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <p>S/2,500 / día</p>
+            <button onclick="addToCart(2500)">Agregar al carrito</button>
           </div>
         </div>
         
@@ -498,7 +501,7 @@
               <li>DJ mezclas en vivo</li>
               <li>Par LED</li>
             </p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://i.pinimg.com/474x/e6/ff/8d/e6ff8d331c76177e1a6203056f2ba150.jpg" alt="Producto">
@@ -511,7 +514,7 @@
               <li>Par LED</li>
               <li>Máquina de humo</li>
             </p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://i.pinimg.com/474x/e6/ff/8d/e6ff8d331c76177e1a6203056f2ba150.jpg" alt="Producto">
@@ -526,7 +529,7 @@
               <li>Máquina de humo</li>
               <li>Gobo personalizado</li>
             </p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://i.pinimg.com/474x/e6/ff/8d/e6ff8d331c76177e1a6203056f2ba150.jpg" alt="Producto">
@@ -542,7 +545,7 @@
               <li>Máquinas de humo</li>
               <li>Cortadora LED 100W x4</li>
             </p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
         </div>
       
@@ -558,7 +561,7 @@
               <li>DJ</li>
               <li>Sonido profesional</li>
             </p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://www.elperiodicodeaqui.com/netpublisher/minfo/imagenes/9237_HJ.jpeg" alt="Producto">
@@ -571,7 +574,7 @@
               <li>Hora loca</li>
               <li>Barman y barra movil</li>
             </p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://blog.invitacionesmodernas.com/wp-content/uploads/2023/05/1-dulce-foto-video-celebracion-quinceanera-0025.jpg" alt="Producto">
@@ -585,7 +588,7 @@
               <li>Barman y Barra movil</li>
               <li>Pista LED</li>
             </p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://cosasbucket.s3.amazonaws.com/wp-content/uploads/2023/01/19125037/befunky_2023-0-4_12-50-22.jpg" alt="Producto">
@@ -599,9 +602,26 @@
               <li>Barman y Barra movil</li>
               <li>Pista LED</li>
             </p>
-            <button onclick="agregarAlCarrito('Producto')">Agregar al carrito</button>
+            <button onclick="addToCart(150)">Agregar al carrito</button>
           </div>
         </div>
+  <div id="formulario" class="container">
+  <form onsubmit="return calcularTotal()">
+        <h1>Calcular Precio de Alquiler</h1>
+        <div id="monto">Monto base: $0.00</div>
+        <form>
+            <label for="tiempo">Tiempo de Alquiler (en horas):</label>
+            <input type="number" id="tiempo" name="tiempo" placeholder="Ingresa horas" min="0" required>
+
+            <label for="distancia">Distancia (en kilómetros):</label>
+            <input type="number" id="distancia" name="distancia" placeholder="Ingresa distancia" min="0" required>
+
+            <button type="button" onclick="calcularTotal()">Calcular Total</button>
+            <button type="button" onclick="cerrarFormulario()">Cerrar</button>
+        </form>
+        <div id="totalFinal" style="margin-top: 20px; font-size: 1.2em; text-align: center; color: #333;"></div>
+  </form>
+</div>
 
     </main>
   </div>
@@ -609,15 +629,7 @@
     <p>&copy; 2025 EventGear. Todos los derechos reservados.</p>
   </footer>
 
-  <script>
-    const carrito = [];
-
-    function agregarAlCarrito(nombre) {
-      carrito.push(nombre);
-      alert(nombre + " agregado al carrito.");
-      console.log("Carrito actual:", carrito);
-    }
-  </script>
+  <script src="jss/catalogo.js"></script>
 
 </body>
 </html>

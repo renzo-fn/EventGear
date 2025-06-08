@@ -1,16 +1,25 @@
 
         .container {
             display: none;
-            max-width: 500px;
-            margin: 0 auto;
-            background: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1000;
         }
-    .container.active {
-      display: block; /* Mostrar el formulario al activarlo */
-    }
+        .container.active {
+        display: block;
+        }
+
+        .container form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
         h1 {
             text-align: center;

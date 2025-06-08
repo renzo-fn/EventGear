@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Catálogo</title>
+  <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/calcularTotal.css">
   <style>
     .encabezado {
@@ -135,6 +136,34 @@
       background-color: #e6a87d;
     }
 
+    .subencabezado {
+    background-color: #f7f7f7; /* Fondo claro */
+    
+    padding: 20px;
+    text-align: right;
+    border-bottom: 1px solid #ccc; /* Línea separadora */
+}
+
+.subencabezado h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.boton-finalizar {
+    background-color: #fcbf99;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.boton-finalizar:hover {
+    background-color: #e6a87d;
+}
+
     footer {
       background-color: black;
       color: white;
@@ -152,11 +181,24 @@
 </head>
 <body>
 
-  <header>
-    <div class="encabezado">
-    <h1>Catálogo</h1>
+  <header> 
+    <div class="logo">
+        <a href="http://127.0.0.1:5500/EventGear.html">
+            <img id="logo" src="logo.png" alt="EVENTGEAR" class="logo">
+        </a>
     </div>
-  </header>
+    <nav>
+        <ul class="menu_items">
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="Catálogo.html">Catálogo</a></li>
+            <li><a href="LibroReclamaciones.html">Libro de Reclamaciones</a></li>
+        </ul>
+    </nav>
+    <div class="Inicio">
+        <a href="InicioSesion.html">Iniciar Sesión</a>
+    </div>
+</header>
+
 
   <div class="contenedor-principal">
     <aside>
@@ -170,6 +212,10 @@
     </aside>
     <main>
       <section id=sonido class="catalogo-categoria">
+        <div class="subencabezado">
+    <div id="total">Total acumulado: $0.00</div>
+          <button onclick="finalizarCompra()">Finalizar Compra</button>
+</div>
         <h2>Sonido</h2>
         <div class="productos">
           <div class="producto" data-precio="150">
@@ -185,8 +231,7 @@
             <button onclick="addToCart(100)">Agregar al carrito</button>
           </div>
         </div>
-         <div id="total">Total acumulado: $0.00</div>
-          <button onclick="mostrarFormulario()">Finalizar Compra</button>
+         
       </section>
     </main>
   </div>
@@ -202,7 +247,8 @@
             <label for="distancia">Distancia (en kilómetros):</label>
             <input type="number" id="distancia" name="distancia" placeholder="Ingresa distancia" min="0" required>
 
-            <button type="button" onclick="cerrarFormulario()">Calcular Total</button>
+            <button type="button" onclick="calcularTotal()">Calcular Total</button>
+            <button type="button" onclick="cerrarFormulario()">Cerrar</button>
         </form>
         <div id="totalFinal" style="margin-top: 20px; font-size: 1.2em; text-align: center; color: #333;"></div>
   </form>
