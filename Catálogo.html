@@ -4,15 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Catálogo</title>
+  <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/Catalogo.css">
   <link rel="stylesheet" href="css/calcularTotal.css">
+  <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
   <header>
-    <div class="encabezado">
-    <h1>Catálogo</h1>
-    </div>
-  </header>
+        <div class="logo">
+        <a href="http://127.0.0.1:5500/EventGear.html">
+            <img id="logo" src="logo.png" alt="EVENTGEAR" class="logo">
+        </a>
+        </div>
+        <nav>
+        <ul class="menu_items">
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="Catálogo.html">Catálogo</a></li>
+            <li><a href="LibroReclamaciones.html">Libro de Reclamaciones</a></li>
+          </ul>
+        </nav>
+        
+        <div class="Inicio">
+            <a href="InicioSesion.html">Iniciar Sesion</a>
+        </div>
+    </header>
 
   <div class="contenedor-principal">
     <aside>
@@ -27,9 +42,10 @@
     <main>
       <section id=sonido class="catalogo-categoria">
         <h2>Sonido</h2>
+        <div class="finalizar">
         <div id="total">Total acumulado: $0.00</div>
           <button onclick="finalizarCompra()">Finalizar Compra</button>
-        
+        </div>
         <div class="productos">
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2022/10/815-1-300x300.jpg" alt="Producto">
@@ -782,14 +798,31 @@
             <button type="button" onclick="cerrarFormulario()">Cerrar</button>
         </form>
         <div id="totalFinal" style="margin-top: 20px; font-size: 1.2em; text-align: center; color: #333;"></div>
+        <button id="pagar" onclick="redirigir()">Pagar</button>
   </form>
 </div>
 
     </main>
   </div>
   <footer>
-    <p>&copy; 2025 EventGear. Todos los derechos reservados.</p>
-  </footer>
+    <div class="pie-pagina">
+        <div>
+            <h4>Teléfono</h4>
+            <p>+51 934 131 831</p>
+        </div>
+        <div>
+            <h4>Correo</h4>
+            <p>EventGear2025@gmail.com</p>
+        </div>
+        <div>
+            <h4>Ubícanos</h4>
+            <p>Tienda - C.C Centro Lima<br>Av. Bolivia 148 Int 552 553<br>Central (01) 425 - 1191</p>
+        </div>
+        <div class="derechos">
+            <p>&copy; 2025 EventGear. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
 
   <script src="jss/catalogo.js"></script>
 
