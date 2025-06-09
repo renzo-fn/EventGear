@@ -1,0 +1,58 @@
+<%@ page import="java.sql.*, java.util.UUID" %>
+<%@ page session="true" %>
+<%
+String idCliente = (String) session.getAttribute("id_cliente");
+if (idCliente == null) {
+    response.sendRedirect("login.jsp");
+    return;
+}
+
+String totalStr = request.getParameter("total");
+String metodoPago = request.getParameter("metodo");
+
+if (totalStr == null || metodoPago == null) {
+    out.print("Faltan datos para procesar el pago.");
+    return;
+}
+
+double total = Double.parseDouble(totalStr);
+String idPago = "PG-" + UUID.randomUUID().toString().substring(0, 8);
+String fechaPago = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+String estadoPago = "pagado";
+String ruc = "111111111";
+
+Connection conn = null;
+PreparedStatement pagoStmt = null;
+PreparedStatement reservaStmt = null;
+
+try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/EventGear", "root", "");
+
+    String insertPago = "INSERT INTO Pago (id_pago, id_cliente, monto, Extra_Hora, Distancia, Extra_Distancia, fecha_pago, MontoTotal, RUC, id_TipoPago, estado_pago) VALUES (?, ?, ?, 0, 0, 0, ?, ?, ?, ?)";
+    pagoStmt = conn.prepareStatement(insertPago);
+    pagoStmt.setString(1, idPago);
+    pagoStmt.setString(2, idCliente);
+    pagoStmt.setDouble(3, total / 1.18);
+    pagoStmt.setString(4, fechaPago);
+    pagoStmt.setDouble(5, total);
+    pagoStmt.setString(6, ruc);
+    pagoStmt.setString(7, metodoPago);
+    pagoStmt.setString(8, estadoPago);
+    pagoStmt.executeUpdate();
+
+    String updateReserva = "UPDATE Reserva SET Estado_reserva = 'confirmada' WHERE id_cliente = ? AND Estado_reserva = 'pendiente'";
+    reservaStmt = conn.prepareStatement(updateReserva);
+    reservaStmt.setString(1, idCliente);
+    reservaStmt.executeUpdate();
+
+    out.print("<script>alert('Pago registrado correctamente.'); window.location='index.jsp';</script>");
+} catch (Exception e) {
+    e.printStackTrace();
+    out.print("<script>alert('Error en el pago.'); history.back();</script>");
+} finally {
+    if (pagoStmt != null) pagoStmt.close();
+    if (reservaStmt != null) reservaStmt.close();
+    if (conn != null) conn.close();
+}
+%>
