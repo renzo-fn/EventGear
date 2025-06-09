@@ -14,8 +14,6 @@
       gap: 15px;
     }
 
-   
-
     .logo {
       height: 60px;
       width: auto;
@@ -78,7 +76,6 @@
       padding: 20px;
       margin-left: 250px;
     }
-    
 
     .catalogo-categoria {
       margin-bottom: 50px;
@@ -101,7 +98,7 @@
       width: 250px;
       background-color: white;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       text-align: center;
       padding-bottom: 20px;
@@ -131,10 +128,10 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    
-    .producto input{
+
+    .producto input {
       width: 50px;
-            text-align: center;
+      text-align: center;
     }
 
     .producto button:hover {
@@ -142,32 +139,34 @@
     }
 
     .subencabezado {
-    background-color: #f7f7f7; /* Fondo claro */
-    
-    padding: 20px;
-    text-align: right;
-    border-bottom: 1px solid #ccc; /* Línea separadora */
-}
+      background-color: #f7f7f7; /* Fondo claro */
+      padding: 20px;
+      text-align: right;
+      border-bottom: 1px solid #ccc; /* Línea separadora */
+      width: 100%; /* Asegurar ancho completo */
+      box-sizing: border-box; /* Incluir padding y bordes */
+      position: relative; /* Evitar superposición */
+    }
 
-.subencabezado h2 {
-    margin: 0 0 10px;
-    font-size: 20px;
-    color: #333;
-}
+    .subencabezado h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #333;
+    }
 
-.boton-finalizar {
-    background-color: #fcbf99;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
+    .boton-finalizar {
+      background-color: #fcbf99;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-.boton-finalizar:hover {
-    background-color: #e6a87d;
-}
+    .boton-finalizar:hover {
+      background-color: #e6a87d;
+    }
 
     footer {
       background-color: black;
@@ -176,12 +175,6 @@
       padding: 20px 0;
       margin-top: 50px;
     }
-
-    .catalogo-categoria {
-  position: relative;
-  padding-top: 120px; 
-  margin-top: -100px; 
-}
   </style>
 </head>
 <body>
@@ -202,8 +195,7 @@
     <div class="Inicio">
         <a href="InicioSesion.html">Iniciar Sesión</a>
     </div>
-</header>
-
+  </header>
 
   <div class="contenedor-principal">
     <aside>
@@ -216,11 +208,11 @@
       <a href="#eventos">Eventos</a>
     </aside>
     <main>
-      <section id=sonido class="catalogo-categoria">
+      <section id="sonido" class="catalogo-categoria">
         <div class="subencabezado">
-    <div id="total">Total acumulado: $0.00</div>
-          <button onclick="finalizarCompra()">Finalizar Compra</button>
-</div>
+          <div id="total">Total acumulado: $0.00</div>
+          <button class="boton-finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+        </div>
         <h2>Sonido</h2>
         <div class="productos">
           <div class="producto" data-precio="150">
@@ -228,10 +220,9 @@
             <h3>Parlante amplificado profesional JBL PRX 815</h3>
             <p>S/150 / día</p>
             <button onclick="addToCart(1, 'Parlante amplificado profesional JBL PRX 815', 150)">Agregar al carrito</button>
-            <br>
-            <br>
+            <br><br>
             <button onclick="disminuir(1)">-</button>
-                <input id="cantidad-1" class="cantidad" type="text" value="0" readonly>
+            <input id="cantidad-1" class="cantidad" type="text" value="0" readonly>
             <button onclick="aumentar(1)">+</button>
           </div>
           <div class="producto" data-precio="100">
@@ -241,28 +232,10 @@
             <button onclick="addToCart()">Agregar al carrito</button>
           </div>
         </div>
-         
       </section>
     </main>
   </div>
 
-<div id="formulario" class="container">
-  <form onsubmit="return calcularTotal()">
-        <h1>Calcular Precio de Alquiler</h1>
-        <div id="monto">Monto base: $0.00</div>
-        <form>
-            <label for="tiempo">Tiempo de Alquiler (en horas):</label>
-            <input type="number" id="tiempo" name="tiempo" placeholder="Ingresa horas" min="0" required>
-
-            <label for="distancia">Distancia (en kilómetros):</label>
-            <input type="number" id="distancia" name="distancia" placeholder="Ingresa distancia" min="0" required>
-
-            <button type="button" onclick="calcularTotal()">Calcular Total</button>
-            <button type="button" onclick="cerrarFormulario()">Cerrar</button>
-        </form>
-        <div id="totalFinal" style="margin-top: 20px; font-size: 1.2em; text-align: center; color: #333;"></div>
-  </form>
-</div>
   <footer>
     <p>&copy; 2025 EventGear. Todos los derechos reservados.</p>
   </footer>
