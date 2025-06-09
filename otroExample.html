@@ -1,212 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Catálogo</title>
-  <style>
-    .encabezado {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .logo {
-      height: 60px;
-      width: auto;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fff8f0;
-    }
-
-    header {
-      background-color: black;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .contenedor-principal {
-      display: flex;
-      min-height: 100vh;
-    }
-
-    aside {
-      width: 250px;
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      position: fixed;
-      top: 120px;
-      height: calc(100vh - 80px);
-      overflow-y: auto;
-    }
-
-    aside h2 {
-      margin-top: 0;
-      padding-bottom: 10px;
-    }
-
-    aside a {
-      color: white;
-      display: block;
-      padding: 10px 0;
-      text-decoration: none;
-    }
-
-    aside a:hover {
-      background-color: #444;
-    }
-
-    main {
-      flex: 1;
-      padding: 20px;
-      margin-left: 250px;
-    }
-    
-
-    .catalogo-categoria {
-      margin-bottom: 50px;
-    }
-
-    .catalogo-categoria h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      margin-left: 20px;
-    }
-
-    .productos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .producto {
-      width: 250px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      text-align: center;
-      padding-bottom: 20px;
-    }
-
-    .producto img {
-      width: 80%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .producto h3 {
-      margin: 10px 0 5px;
-    }
-
-    .producto p {
-      font-size: 14px;
-      padding: 0 10px;
-      margin: 0 0 10px;
-    }
-
-    .producto button {
-      background-color: #fcbf99;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .producto button:hover {
-      background-color: #e6a87d;
-    }
-
-    footer {
-      background-color: black;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 50px;
-    }
-
-    .catalogo-categoria {
-  position: relative;
-  padding-top: 120px; 
-  margin-top: -100px; 
-}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda en Línea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #0056b3;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 1rem;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        .producto {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .cantidad {
+            width: 50px;
+            text-align: center;
+        }
+        button {
+            padding: 0.5rem;
+            margin: 0 0.5rem;
+            cursor: pointer;
+        }
+        #carrito {
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Tienda en Línea</h1>
+        <p>Los mejores productos al mejor precio</p>
+    </header>
 
-  <header>
-    <div class="encabezado">
-    <h1>Catálogo</h1>
-    </div>
-  </header>
+    <!-- Menú de navegación -->
+    <nav>
+        <a href="#productos">Productos</a>
+        <a href="#carrito">Carrito</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
 
-  <div class="contenedor-principal">
-    <aside>
-      <h2>Categorías</h2>
-      <a href="#sonido">Sonido</a>
-      <a href="#luces">Luces y efectos</a>
-      <a href="#pantallasled">Pantallas LED</a>
-      <a href="#escenarios">Escenarios y estructuras</a>
-      <a href="#paquetes">Paquetes para fiestas</a>
-      <a href="#eventos">Eventos</a>
-    </aside>
+    <!-- Cuerpo principal -->
     <main>
-      <section id=sonido class="catalogo-categoria">
-        <h2>Sonido</h2>
-        <div class="productos">
-          <div class="producto" data-precio="150">
-            <img src="https://e2peru.com/wp-content/uploads/2022/10/815-1-300x300.jpg" alt="Producto">
-            <h3>Parlante amplificado profesional JBL PRX 815</h3>
-            <p>S/150 / día</p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
-          </div>
-          <div class="producto" data-precio="100">
-            <img src="https://e2peru.com/wp-content/uploads/2023/10/zedi10-1-300x300.png" alt="Producto">
-            <h3>Mixer híbrido Allen & Heath ZEDi-10</h3>
-            <p>S/100 / día</p>
-            <button onclick="addToCart(100)">Agregar al carrito</button>
-          </div>
-        </div>
-         <div id="total">Total acumulado: $0.00</div>
-    <button id="finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
-      </section>
+        <!-- Sección de productos -->
+        <section id="productos">
+            <h2>Productos Disponibles</h2>
+            <div class="producto">
+                <span>Producto 1 - $10</span>
+                <button onclick="disminuir(1)">-</button>
+                <input id="cantidad-1" class="cantidad" type="text" value="0" readonly>
+                <button onclick="aumentar(1)">+</button>
+                <button onclick="agregarAlCarrito(1, 'Producto 1', 10)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <span>Producto 2 - $20</span>
+                <button onclick="disminuir(2)">-</button>
+                <input id="cantidad-2" class="cantidad" type="text" value="0" readonly>
+                <button onclick="aumentar(2)">+</button>
+                <button onclick="agregarAlCarrito(2, 'Producto 2', 20)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <span>Producto 3 - $30</span>
+                <button onclick="disminuir(3)">-</button>
+                <input id="cantidad-3" class="cantidad" type="text" value="0" readonly>
+                <button onclick="aumentar(3)">+</button>
+                <button onclick="agregarAlCarrito(3, 'Producto 3', 30)">Agregar al Carrito</button>
+            </div>
+        </section>
+
+        <!-- Sección del carrito -->
+        <section id="carrito">
+            <h2>Carrito de Compras</h2>
+            <p id="total">Total: $0</p>
+        </section>
     </main>
-  </div>
-  <footer>
-    <p>&copy; 2025 EventGear. Todos los derechos reservados.</p>
-  </footer>
 
-  <script>
-    let total = 0;
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2025 Tienda en Línea. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="mailto:info@tienda.com" style="color: white;">info@tienda.com</a></p>
+    </footer>
 
-    function addToCart(precio) {
-      total += precio;
-      document.getElementById('total').textContent = `Total acumulado: $${total.toFixed(2)}`;
-    }
+    <!-- JavaScript -->
+    <script>
+        let total = 0;
 
-    function finalizarCompra() {
-      alert("El total de su compra es: S/" + total);
-      total = 0; 
-        localStorage.setItem('totalCompra', total.toFixed(2));
+        function aumentar(id) {
+            const input = document.getElementById(`cantidad-${id}`);
+            let cantidad = parseInt(input.value, 10);
+            cantidad++;
+            input.value = cantidad;
+        }
 
-        window.location.href = 'calcularMontoFinal.html'
-    }
-  </script>
+        function disminuir(id) {
+            const input = document.getElementById(`cantidad-${id}`);
+            let cantidad = parseInt(input.value, 10);
+            if (cantidad > 0) {
+                cantidad--;
+            }
+            input.value = cantidad;
+        }
 
+        function agregarAlCarrito(id, nombreProducto, precio) {
+            const input = document.getElementById(`cantidad-${id}`);
+            const cantidad = parseInt(input.value, 10);
+
+            if (cantidad > 0) {
+                total += cantidad * precio; // Calcular y acumular el precio total
+                actualizarTotal();
+                input.value = 0; // Reiniciar cantidad
+            } else {
+                alert("La cantidad debe ser mayor a 0");
+            }
+        }
+
+        function actualizarTotal() {
+            const totalElemento = document.getElementById("total");
+            totalElemento.textContent = `Total: $${total}`;
+        }
+    </script>
 </body>
 </html>

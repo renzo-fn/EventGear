@@ -126,6 +126,11 @@
       background-color: #e6a87d;
     }
 
+    .producto input{
+      width: 50px;
+      text-align: center;
+    }
+
     footer {
       background-color: black;
       color: white;

@@ -42,7 +42,11 @@
               <li>Control por app WiFi</li>
             </p>
             <p>S/150 / día</p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <button onclick="disminuir(1)">-</button>
+            <input id="cantidad-1" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(1)">+</button>
+            <br>
+            <button onclick="addToCart(1, 'Parlante amplificado profesional JBL PRX 815', 150)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/10/zedi10-1-300x300.png" alt="Producto">
@@ -56,8 +60,13 @@
              <li>Phantom power de +48V</li>
             </p>
             <p>S/100 / día</p>
-            <button onclick="addToCart(100)">Agregar al carrito</button>
+            <button onclick="disminuir(2)">-</button>
+            <input id="cantidad-2" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(2)">+</button>
+            <br>
+            <button onclick="addToCart(2, 'Mixer híbrido Allen & Heath ZEDi-10', 100)">Agregar al carrito</button>
           </div>
+
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2024/10/600-1-300x300.jpg" alt="Producto">
             <h3>Micrófono Shotgun Sennheiser MKE 600</h3>
@@ -71,8 +80,12 @@
               <li>Cuerpo de aluminio negro mate</li>
             </p>
             <p>S/100 / día</p>
-            <button onclick="addToCart(100)">Agregar al carrito</button>
+            <button onclick="disminuir(3)">-</button>
+            <input id="cantidad-3" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(3)">+</button>
+            <button onclick="addToCart(3, 'Micrófono Shotgun Sennheiser MKE 600', 100)">Agregar al carrito</button>
           </div>
+
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/10/yamaha3-300x300.png" alt="Producto">
             <h3>Consola de Mezclas Analógica Premium Yamaha MGP16X</h3>
@@ -84,7 +97,10 @@
               <li>Procesadores de efectos duales de alta calidad: REV-X avanzado y el clásico SPX</li>
             </p>
             <p>S/200 / día</p>
-            <button onclick="addToCart(200)">Agregar al carrito</button>
+            <button onclick="disminuir(4)">-</button>
+            <input id="cantidad-4" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(4)">+</button>
+            <button onclick="addToCart(4, 'Consola de Mezclas Analógica Premium Yamaha MGP16X', 200)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2022/04/shure-sm58-inalambrico-300x300.png" alt="Producto">
@@ -96,7 +112,10 @@
               <li>Requiere 2 pilas AA no incluidas</li>
             </p>
             <p>S/80 / día</p>
-            <button onclick="addToCart(80)">Agregar al carrito</button>
+            <button onclick="disminuir(5)">-</button>
+            <input id="cantidad-5" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(5)">+</button>
+            <button onclick="addToCart(5, 'Micrófono de mano inalámbrico Shure SM58', 80)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2018/10/sony_uwp_d11-800x800-300x300.jpg" alt="Producto">
@@ -107,7 +126,10 @@
               <li>Construcción en aluminio</li>
             </p>
             <p>S/80 / día</p>
-            <button onclick="addToCart(80)">Agregar al carrito</button>
+            <button onclick="disminuir(6)">-</button>
+            <input id="cantidad-6" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(6)">+</button>
+            <button onclick="addToCart(6, 'Solapero inalámbrico Sony UWP-D11', 80)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2024/02/zoom-kit1-300x300.png" alt="Producto">
@@ -119,7 +141,10 @@
               <li>Audífono Zoom ZHP-1 con diadema autoajustable y cable desmontable</li>
             </p>
             <p>S/50 / día</p>
-            <button onclick="addToCart(50)">Agregar al carrito</button>
+            <button onclick="disminuir(7)">-</button>
+            <input id="cantidad-7" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(7)">+</button>
+            <button onclick="addToCart(7, 'Micrófono Zoom ZDM1 kit', 50)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2018/10/f8-FB-300x300.jpg" alt="Producto">
@@ -133,7 +158,10 @@
               <li>App IOS para manejo a distancia (bluetooth)</li>
             </p>
             <p>S/120 / día</p>
-            <button onclick="addToCart(120)">Agregar al carrito</button>
+            <button onclick="disminuir(8)">-</button>
+            <input id="cantidad-8" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(8)">+</button>
+            <button onclick="addToCart(8, 'Grabadora de audio para campo Zoom F8', 120)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2024/02/m2-1-300x300.png" alt="Producto">
@@ -145,7 +173,10 @@
               <li>Accesorios magnéticos para mayor versatilidad</li>
             </p>
             <p>S/80 / día</p>
-            <button onclick="addToCart(80)">Agregar al carrito</button>
+            <button onclick="disminuir(9)">-</button>
+            <input id="cantidad-9" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(9)">+</button>
+            <button onclick="addToCart(9, 'Micrófonos inalámbricos Hollyland Lark M2', 80)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/10/at2035-2-300x300.png" alt="Producto">
@@ -157,7 +188,10 @@
               <li>Capacidad para manejar elevados niveles SPL y amplia gama dinámica que proporciona una versatilidad inigualable</li>
             </p>
             <p>S/80 / día</p>
-            <button onclick="addToCart(80)">Agregar al carrito</button>
+            <button onclick="disminuir(10)">-</button>
+            <input id="cantidad-10" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(10)">+</button>
+            <button onclick="addToCart(10, 'Micrófono de condensador AudioTechnica AT2035 Kit', 80)">Agregar al carrito</button>
           </div>
         </div>
       </section>
@@ -181,7 +215,10 @@
               <li>Incluye adaptador AC</li>
             </p>
             <p>S/50 / día</p>
-            <button onclick="addToCart(50)">Agregar al carrito</button>
+            <button onclick="disminuir(11)">-</button>
+            <input id="cantidad-11" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(11)">+</button>
+            <button onclick="addToCart(11, 'Panel RGB Godox LP600R', 50)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/11/m20c-1-300x300.png" alt="Producto">
@@ -194,7 +231,10 @@
               <li>Funciones CCT, HSI, RGB, Fx (16 efectos), Music</li>
             </p>
             <p>S/50 / día</p>
-            <button onclick="addToCart(50)">Agregar al carrito</button>
+            <button onclick="disminuir(12)">-</button>
+            <input id="cantidad-12" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(12)">+</button>
+            <button onclick="addToCart(12, 'Led RGB Zhiyun Fiveray M20C', 50)">Agregar al carrito</button>
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/04/mt-pro-1-300x300.jpg" alt="Producto">
@@ -209,7 +249,11 @@
               <li>Construcción en aluminio, longitud de 1’=30,5cm</li>
             </p>
             <p>S/80 / día</p>
-            <button onclick="addToCart(80)">Agregar al carrito</button>
+            <button onclick="disminuir(13)">-</button>
+            <input id="cantidad-13" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(13)">+</button>
+            <button onclick="addToCart(13, 'Tubo LED RGB Aputure MT Pro', 80)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2021/10/c120d-ii.jpg" alt="Producto">
@@ -224,7 +268,11 @@
               <li>Control inalámbrico 2.4GHz o por DMX512</li>
             </p>
             <p>S/120 / día</p>
-            <button onclick="addToCart(120)">Agregar al carrito</button>
+            <button onclick="disminuir(14)">-</button>
+            <input id="cantidad-14" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(14)">+</button>
+            <button onclick="addToCart(14, 'Luz monoled Aputure C120d II', 120)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2019/01/al-f7-300x300.jpg" alt="Producto">
@@ -237,7 +285,11 @@
               <li>Incluye zapata de rótula</li>
             </p>
             <p>S/ 30 / día</p>
-            <button onclick="addToCart(30)">Agregar al carrito</button>
+            <button onclick="disminuir(15)">-</button>
+            <input id="cantidad-15" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(15)">+</button>
+            <button onclick="addToCart(15, 'Luz led para cámara Aputure AL-F7', 30)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2021/10/octobox-300x300.jpg" alt="Producto">
@@ -248,7 +300,11 @@
               <li>Montura Bowens</li>
             </p>
             <li>S/20 / día</li>
-            <button onclick="addToCart(20)">Agregar al carrito</button>
+            <button onclick="disminuir(16)">-</button>
+            <input id="cantidad-16" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(16)">+</button>
+            <button onclick="addToCart(16, 'Parlante amplificado profesional JBL PRX 815', 20)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2021/11/mc-1-300x300.jpg" alt="Producto">
@@ -260,7 +316,11 @@
               <li>Imanes al reverso para colocarlo en cualquier superficie metálica sin necesidad de accesorios</li>
             </p>
             <p>S/30 / día</p>
-            <button onclick="addToCart(30)">Agregar al carrito</button>
+            <button onclick="disminuir(17)">-</button>
+            <input id="cantidad-17" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(17)">+</button>
+            <button onclick="addToCart(17, 'Led RGB Aputure MC', 30)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2021/10/softbox-80-x-120-300x300.jpg" alt="Producto">
@@ -272,7 +332,11 @@
               <li>Montura Bowens</li>
             </p>
             <p>S/15 / día</p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <button onclick="disminuir(18)">-</button>
+            <input id="cantidad-18" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(18)">+</button>
+            <button onclick="addToCart(18, 'Softbox 60x90cm Godox', 15)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2019/01/yn600-RGB-500x500-300x300.png" alt="Producto">
@@ -284,7 +348,11 @@
               <li>Incluye fuentes AC, parantes y soportes</li>
             </p>
             <p>S/150 / día</p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <button onclick="disminuir(19)">-</button>
+            <input id="cantidad-19" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(19)">+</button>
+            <button onclick="addToCart(19, 'Kit luces led YN600 RGB', 150)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://e2peru.com/wp-content/uploads/2023/04/tl60-1-300x300.jpg" alt="Producto">
@@ -299,7 +367,11 @@
               <li>Función continua con fuente externa (incluída)</li>
             </p>
             <p>S/200 / día</p>
-            <button onclick="addToCart(200)">Agregar al carrito</button>
+            <button onclick="disminuir(20)">-</button>
+            <input id="cantidad-20" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(20)">+</button>
+            <button onclick="addToCart(20, 'Barras led RGB Godox TL60 kit de 4', 200)">Agregar al carrito</button>
+
           </div>
         </div>
       </section>
@@ -320,7 +392,11 @@
               <li>Módulo LED P3-P15, paneles y pantallas disponibles</li>
             </p>
             <p>S/2,600 / día</p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <button onclick="disminuir(21)">-</button>
+            <input id="cantidad-21" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(21)">+</button>
+            <button onclick="addToCart(21, 'Pantalla LED transparente para exteriores', 2600)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://www.visionledpro.com/uploads/image/67b6e535b1165.png" alt="Producto">
@@ -335,7 +411,11 @@
               <li>Módulo LED P3.91/P4.81/P5.95, paneles y pantallas disponibles</li>
             </p>
             <p>S/6,000 / día</p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <button onclick="disminuir(22)">-</button>
+            <input id="cantidad-22" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(22)">+</button>
+            <button onclick="addToCart(22, 'Videowall LED para escenario', 6000)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://www.visionledpro.com/uploads/image/67de0ef67c87a.png" alt="Producto">
@@ -349,7 +429,11 @@
               <li>Módulo LED P6/P8/P10, paneles y pantallas disponibles</li>
             </p>
             <p>S/7,500 / día</p>
-            <button onclick="addToCart(7500)">Agregar al carrito</button>
+            <button onclick="disminuir(23)">-</button>
+            <input id="cantidad-23" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(23)">+</button>
+            <button onclick="addToCart(23, 'Pantalla de pared de video LED fija para exteriores', 7500)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://www.visionledpro.com/uploads/image/5ef070c7c335c.jpg" alt="Producto">
@@ -362,7 +446,11 @@
               <li>P1.667/P1.86/P2/P.25 Módulo LED y paneles y pantallas disponibles</li>
             </p>
             <p>S/11,000 / día</p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <button onclick="disminuir(24)">-</button>
+            <input id="cantidad-24" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(24)">+</button>
+            <button onclick="addToCart(24, 'Videowall LED con paso de píxel pequeño', 11000)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://www.visionledpro.com/uploads/image/6437d3d005717.jpg" alt="Producto">
@@ -377,7 +465,11 @@
               <li>Más de 10000 pruebas de flexión para garantizar la calidad para el usuario final.</li>
             </p>
             <p>S/15,000 / día</p>
-            <button onclick="addToCart(15000)">Agregar al carrito</button>
+            <button onclick="disminuir(25)">-</button>
+            <input id="cantidad-25" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(25)">+</button>
+            <button onclick="addToCart(25, 'Videowall LED flexible', 15000)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://www.visionledpro.com/uploads/image/5eec6832ec555.jpg" alt="Producto">
@@ -391,7 +483,11 @@
               <li>Módulo LED P6/P8/P10, paneles y pantallas disponibles</li>
             </p>
             <p>S/7,000 / día</p>
-            <button onclick="addToCart(7000)">Agregar al carrito</button>
+            <button onclick="disminuir(26)">-</button>
+            <input id="cantidad-26" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(26)">+</button>
+            <button onclick="addToCart(26, 'PPantalla de pared de video LED fija de ahorro de energía para exteriores', 7000)">Agregar al carrito</button>
+
           </div>
         </div>
       </section>
@@ -408,7 +504,11 @@
               <li>Eventos masivos</li>
             </p>
             <p>S/24,000 / día</p>
-            <button onclick="addToCart(24000)">Agregar al carrito</button>
+            <button onclick="disminuir(27)">-</button>
+            <input id="cantidad-27" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(27)">+</button>
+            <button onclick="addToCart(27, 'Escenarios estelares', 24000)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://www.estructural.pe/hadmin/images/66630443_2398201113596893_1255858788221583360_n.jpg" alt="Producto">
@@ -421,7 +521,11 @@
               <li>O elementos decorativos específicos</li>
             </p>
             <p>S/6,000 / día</p>
-            <button onclick="addToCart(6000)">Agregar al carrito</button>
+            <button onclick="disminuir(28)">-</button>
+            <input id="cantidad-28" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(28)">+</button>
+            <button onclick="addToCart(28, 'Estrados de ceremonias', 6000)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://lh3.googleusercontent.com/proxy/nYtMncpGqS48mVdHva2-i_wB5--5fg3jgsN5SaKEyRndqWHGxP7zPeLu0X3yng4H05uYzuENlEM-MASCZlqwzJiRFKQ" alt="Producto">
@@ -435,7 +539,11 @@
               <li>Mobiliario específico</li>
             </p>
             <p>S/4,500 / día</p>
-            <button onclick="addToCart(4500)">Agregar al carrito</button>
+            <button onclick="disminuir(29)">-</button>
+            <input id="cantidad-29" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(29)">+</button>
+            <button onclick="addToCart(29, 'Tarimas de conferencias', 4500)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://www.paladareventos.com/imagenesdb/pasarela-de-moda-2009-enmoquetada-y-ambientacion-de-sala-web.jpg" alt="Producto">
@@ -450,7 +558,11 @@
               <li>Requirimientos de ingeniería</li>
             </p>
             <p>S/20,000 / día</p>
-            <button onclick="addToCart(20000)">Agregar al carrito</button>
+            <button onclick="disminuir(30)">-</button>
+            <input id="cantidad-30" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(30)">+</button>
+            <button onclick="addToCart(30, 'Pasarela para desfiles de moda', 20000)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://delfineventos.com/Imagenes/tabladillos/pista%20de%20baile%20%281%29.jpeg" alt="Producto">
@@ -459,7 +571,11 @@
               <li>Pista de 20 m²</li>
             </p>
             <p>S/8,000 / día</p>
-            <button onclick="addToCart(8000)">Agregar al carrito</button>
+            <button onclick="disminuir(31)">-</button>
+            <input id="cantidad-31" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(31)">+</button>
+            <button onclick="addToCart(31, 'Tabladillos para pista de baile', 8000)">Agregar al carrito</button>
+
           </div>
           <div class="producto">
             <img src="https://cdn0.matrimonio.com.pe/vendor/8078/3_2/640/jpg/426698-103595239769717-1675953580-n_11_108078.jpeg" alt="Producto">
@@ -472,8 +588,12 @@
               <li>Para cientos o miles de personas</li>
             </p>
             <p>S/10,000 / día</p>
-            <button onclick="addToCart(10000)">Agregar al carrito</button>
+            <button onclick="disminuir(32)">-</button>
+            <input id="cantidad-32" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(32)">+</button>
+            <button onclick="addToCart(32, 'Toldos para eventos corporativos y sociales', 10000)">Agregar al carrito</button>
           </div>
+
           <div class="producto">
             <img src="https://i.pinimg.com/736x/b2/d5/01/b2d501329066cfb858edce5af8ab02f8.jpg" alt="Producto">
             <h3>Toldos infantiles</h3>
@@ -484,7 +604,10 @@
               <li>Espacio para juegos/shows</li>        
             </p>
             <p>S/2,500 / día</p>
-            <button onclick="addToCart(2500)">Agregar al carrito</button>
+            <button onclick="disminuir(33)">-</button>
+            <input id="cantidad-33" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(33)">+</button>
+            <button onclick="addToCart(33, 'Toldos infantiles', 2500)">Agregar al carrito</button>
           </div>
         </div>
         
@@ -501,8 +624,13 @@
               <li>DJ mezclas en vivo</li>
               <li>Par LED</li>
             </p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <p>S/785 </p>
+            <button onclick="disminuir(34)">-</button>
+            <input id="cantidad-34" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(34)">+</button>
+            <button onclick="addToCart(34, 'Pachanga', 785)">Agregar al carrito</button>
           </div>
+
           <div class="producto">
             <img src="https://i.pinimg.com/474x/e6/ff/8d/e6ff8d331c76177e1a6203056f2ba150.jpg" alt="Producto">
             <h3>Juerga</h3>
@@ -514,8 +642,13 @@
               <li>Par LED</li>
               <li>Máquina de humo</li>
             </p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <p>S/1385 </p>
+            <button onclick="disminuir(35)">-</button>
+            <input id="cantidad-35" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(35)">+</button>
+            <button onclick="addToCart(35, 'Juerga', 1385)">Agregar al carrito</button>
           </div>
+
           <div class="producto">
             <img src="https://i.pinimg.com/474x/e6/ff/8d/e6ff8d331c76177e1a6203056f2ba150.jpg" alt="Producto">
             <h3>Disco Pro</h3>
@@ -529,8 +662,13 @@
               <li>Máquina de humo</li>
               <li>Gobo personalizado</li>
             </p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <p>S/2010 </p>
+            <button onclick="disminuir(36)">-</button>
+            <input id="cantidad-36" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(36)">+</button>
+            <button onclick="addToCart(36, 'Disco Pro', 2010)">Agregar al carrito</button>
           </div>
+
           <div class="producto">
             <img src="https://i.pinimg.com/474x/e6/ff/8d/e6ff8d331c76177e1a6203056f2ba150.jpg" alt="Producto">
             <h3>King of kings</h3>
@@ -545,7 +683,11 @@
               <li>Máquinas de humo</li>
               <li>Cortadora LED 100W x4</li>
             </p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <p>S/6190 </p>
+            <button onclick="disminuir(37)">-</button>
+            <input id="cantidad-37" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(37)">+</button>
+            <button onclick="addToCart(37, 'King of kings', 6190)">Agregar al carrito</button>
           </div>
         </div>
       
@@ -561,8 +703,13 @@
               <li>DJ</li>
               <li>Sonido profesional</li>
             </p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <p>S/1750 </p>
+            <button onclick="disminuir(38)">-</button>
+            <input id="cantidad-38" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(38)">+</button>
+            <button onclick="addToCart(38, 'Boda Lite', 1750)">Agregar al carrito</button>
           </div>
+
           <div class="producto">
             <img src="https://www.elperiodicodeaqui.com/netpublisher/minfo/imagenes/9237_HJ.jpeg" alt="Producto">
             <h3>Boda Full</h3>
@@ -574,8 +721,13 @@
               <li>Hora loca</li>
               <li>Barman y barra movil</li>
             </p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <p>S/5500 </p>
+            <button onclick="disminuir(39)">-</button>
+            <input id="cantidad-39" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(39)">+</button>
+            <button onclick="addToCart(39, 'Boda Full', 5500)">Agregar al carrito</button>
           </div>
+
           <div class="producto">
             <img src="https://blog.invitacionesmodernas.com/wp-content/uploads/2023/05/1-dulce-foto-video-celebracion-quinceanera-0025.jpg" alt="Producto">
             <h3>Quinceañero</h3>
@@ -588,8 +740,13 @@
               <li>Barman y Barra movil</li>
               <li>Pista LED</li>
             </p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <p>S/7250 </p>
+            <button onclick="disminuir(40)">-</button>
+            <input id="cantidad-40" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(40)">+</button>
+            <button onclick="addToCart(40, 'Quinceañero', 7250)">Agregar al carrito</button>
           </div>
+
           <div class="producto">
             <img src="https://cosasbucket.s3.amazonaws.com/wp-content/uploads/2023/01/19125037/befunky_2023-0-4_12-50-22.jpg" alt="Producto">
             <h3>Fiesta de promoción</h3>
@@ -602,9 +759,14 @@
               <li>Barman y Barra movil</li>
               <li>Pista LED</li>
             </p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <p>S/7250 </p>
+            <button onclick="disminuir(41)">-</button>
+            <input id="cantidad-41" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(41)">+</button>
+            <button onclick="addToCart(41, 'Fiesta de promoción', 7250)">Agregar al carrito</button>
           </div>
         </div>
+
   <div id="formulario" class="container">
   <form onsubmit="return calcularTotal()">
         <h1>Calcular Precio de Alquiler</h1>

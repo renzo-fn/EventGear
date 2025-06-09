@@ -131,6 +131,11 @@
       border-radius: 5px;
       cursor: pointer;
     }
+    
+    .producto input{
+      width: 50px;
+            text-align: center;
+    }
 
     .producto button:hover {
       background-color: #e6a87d;
@@ -222,13 +227,18 @@
             <img src="https://e2peru.com/wp-content/uploads/2022/10/815-1-300x300.jpg" alt="Producto">
             <h3>Parlante amplificado profesional JBL PRX 815</h3>
             <p>S/150 / día</p>
-            <button onclick="addToCart(150)">Agregar al carrito</button>
+            <button onclick="addToCart(1, 'Parlante amplificado profesional JBL PRX 815', 150)">Agregar al carrito</button>
+            <br>
+            <br>
+            <button onclick="disminuir(1)">-</button>
+                <input id="cantidad-1" class="cantidad" type="text" value="0" readonly>
+            <button onclick="aumentar(1)">+</button>
           </div>
           <div class="producto" data-precio="100">
             <img src="https://e2peru.com/wp-content/uploads/2023/10/zedi10-1-300x300.png" alt="Producto">
             <h3>Mixer híbrido Allen & Heath ZEDi-10</h3>
             <p>S/100 / día</p>
-            <button onclick="addToCart(100)">Agregar al carrito</button>
+            <button onclick="addToCart()">Agregar al carrito</button>
           </div>
         </div>
          
@@ -253,20 +263,45 @@
         <div id="totalFinal" style="margin-top: 20px; font-size: 1.2em; text-align: center; color: #333;"></div>
   </form>
 </div>
-
-
-
   <footer>
     <p>&copy; 2025 EventGear. Todos los derechos reservados.</p>
   </footer>
 
-  <script>
+   <script>
     let total = 0;
+    
+        function aumentar(id) {
+            const input = document.getElementById(`cantidad-${id}`);
+            let cantidad = parseInt(input.value, 10);
+            cantidad++;
+            input.value = cantidad;
+        }
 
-    function addToCart(precio) {
-      total += precio;
-      document.getElementById('total').textContent = `Total acumulado: S/${total.toFixed(2)}`;
-    }
+        function disminuir(id) {
+            const input = document.getElementById(`cantidad-${id}`);
+            let cantidad = parseInt(input.value, 10);
+            if (cantidad > 0) {
+                cantidad--;
+            }
+            input.value = cantidad;
+        }
+
+    function addToCart(id, nombreProducto, precio) {
+            const input = document.getElementById(`cantidad-${id}`);
+            const cantidad = parseInt(input.value, 10);
+
+            if (cantidad > 0) {
+                total += cantidad * precio; // Calcular y acumular el precio total
+                actualizarTotal();
+                input.value = 0; // Reiniciar cantidad
+            } else {
+                alert("La cantidad debe ser mayor a 0");
+            }}
+
+    function actualizarTotal() {
+            const totalElemento = document.getElementById("total");
+            totalElemento.textContent = `Total: $${total}`;
+        }
 
     function finalizarCompra() {
       alert(`El total de su compra es: S/${total.toFixed(2)}`);
@@ -292,7 +327,8 @@
       document.getElementById('totalFinal').textContent = `Total a pagar: S/${totalFinal.toFixed(2)}`;
 
       return false; // Evita que el formulario recargue la página
-    }
+    } 
   </script>
+
 </body>
 </html>
