@@ -1,4 +1,4 @@
-let total = 0;  
+let total = 0;
     
         function aumentar(id) {
             const input = document.getElementById(`cantidad-${id}`);
@@ -46,8 +46,6 @@ let total = 0;
             document.getElementById(`formulario`).classList.remove('active');
         }
 
-    
-
     function calcularTotal() {
       const tiempo = parseFloat(document.getElementById('tiempo').value) || 0;
       const distancia = parseFloat(document.getElementById('distancia').value) || 0;
@@ -58,20 +56,5 @@ let total = 0;
       const totalFinal = total + tiempo * hourlyRate + distancia * distanceRate;
       document.getElementById('totalFinal').textContent = `Total a pagar: S/${totalFinal.toFixed(2)}`;
 
+      return false; // Evita que el formulario recargue la página
     }
-
-    const totalElemento = document.getElementById("total");
-    totalElemento.textContent = `Total acumulado: S/${total.toFixed(2)}`;
-
-    const pagarBoton = document.getElementById("pagar");
-    if (total > 0) {
-        pagarBoton.style.display = "inline-block";
-    }
-    
-    function redirigir() {
-    window.location.href = "pago.jsp";
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-    const pagarBoton = document.getElementById("pagar");
-    pagarBoton.addEventListener('click', redirigir);
-});

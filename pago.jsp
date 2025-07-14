@@ -1,71 +1,72 @@
-<%@ page import="java.sql.*, javax.sql.*" %>
+
 <%@ page session="true" %>
-<%
-    String idCliente = (String) session.getAttribute("id_cliente");
-    if (idCliente == null) {
-        response.sendRedirect("login.jsp");
-        return;
-    }
-
-    Connection conn = null;
-    PreparedStatement stmt = null;
-    ResultSet rs = null;
-    double monto = 0.0;
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/EventGear", "root", "");
-
-        String sql = "SELECT c.nombre, c.Modelo, c.Precio FROM Reserva r JOIN Catalogo c ON r.id_equipo = c.id_equipo WHERE r.id_cliente = ? AND r.Estado_reserva = 'pendiente'";
-        stmt = conn.prepareStatement(sql);
-        stmt.setString(1, idCliente);
-        rs = stmt.executeQuery();
-%>
-<!DOCTYPE html>
-<html lang="es">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Página de Pago</title>
-  <link rel="stylesheet" href="assets/style.css">
+    <title>Pago - Eventgear</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f0f5;
+            margin: 0; padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .qr-box {
+            text-align: center;
+        }
+        .qr-box img {
+            max-width: 150px;
+            margin: 10px;
+        }
+        .datos {
+            margin: 20px 0;
+        }
+        .boton {
+            text-align: center;
+        }
+        .boton button {
+            background-color: #5e00d6;
+            color: white;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <h1>Resumen del Pedido</h1>
-  <ul id="lista-productos">
-    <% while (rs.next()) {
-        double precio = rs.getDouble("Precio");
-        monto += precio;
-    %>
-      <li><%= rs.getString("nombre") %> - Modelo <%= rs.getString("Modelo") %> - S/ <%= precio %></li>
-    <% } %>
-  </ul>
-
-  <div class="totales">
-    <label>Monto: </label>
-    <input type="text" id="monto" value="<%= monto %>" readonly><br>
-    <label>IGV (18%): </label>
-    <input type="text" id="igv" readonly><br>
-    <label>Total: </label>
-    <input type="text" id="total" readonly>
-  </div>
-
-  <h2>Sube tu código QR (JPEG)</h2>
-  <input type="file" id="qrInput" accept="image/jpeg">
-  <p id="qrStatus"></p>
-
-  <form action="registrar_pago.jsp" method="post" onsubmit="return validarPago();">
-    <input type="hidden" name="total" id="totalHidden">
-    <input type="hidden" name="metodo" value="yapeCliente">
-    <button id="pagarBtn" disabled>Pagar</button>
-  </form>
-
-  <script src="assets/main.js"></script>
+<div class="container">
+    <h2>Pagar con Yape</h2>
+    <div class="qr-box">
+        <img src="imagenes/logo yape.png" alt="Logo Yape">
+        <br>
+        <img src="imagenes/qr yape.jpg" alt="QR Yape">
+    </div>
+    <div class="datos">
+        <p><strong>Cliente:</strong> <%= session.getAttribute("cliente") != null ? session.getAttribute("cliente") : "Invitado" %></p>
+        <p><strong>Monto base:</strong> S/ <%= session.getAttribute("subtotal") != null ? session.getAttribute("subtotal") : "0.00" %></p>
+        <p><strong>IGV (18%):</strong> S/ <%= session.getAttribute("igv") != null ? session.getAttribute("igv") : "0.00" %></p>
+        <p><strong>Total a pagar:</strong> S/ <%= session.getAttribute("total") != null ? session.getAttribute("total") : "0.00" %></p>
+    </div>
+    <div class="boton">
+        <form action="reporte_pago.jsp" method="post">
+            <button type="submit">Confirmar pago</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>
-<%
-    } catch (Exception e) {
-        e.printStackTrace();
-    } finally {
-        if (rs != null) rs.close();
-        if (stmt != null) stmt.close();
-        if (conn != null) conn.close();
-    }
-%>
