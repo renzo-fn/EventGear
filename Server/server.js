@@ -22,7 +22,7 @@ const config = {
     }
 };
 
-app.get('/catalogo', async (req, res) => {
+app.get('/Catalogo', async (req, res) => {
     try {
         await sql.connect(config);
         const result = await sql.query('SELECT * FROM catalogo');
