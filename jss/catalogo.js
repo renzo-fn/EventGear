@@ -1,5 +1,5 @@
 let total = 0;  
-    
+
         function aumentar(id) {
             const input = document.getElementById(`cantidad-${id}`);
             let cantidad = parseInt(input.value, 10);

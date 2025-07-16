@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Trabajadores</title>
-    <link rel="stylesheet" href="css/Trabajadores.css">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="css/Administrador.css">
 </head>
 <body>
 
     <div class="sidebar">
     <h2>EventGear</h2>
     <ul>
-            <li><a href="#" onclick="mostrarVista('vista-Dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="mostrarVista('vista-Ventas')">Ventas</a></li>
+            <li><a href="#" onclick="mostrarVista('vista-Productos')">Productos</a></li>
             <li><a href="#" onclick="mostrarVista('vista-Trabajadores')">Trabajadores</a></li>
+            <li><a class="exit" href="InicioSesion.html">Salir</a></li>
         </ul>
     </div>
 
@@ -54,6 +56,26 @@
         </table>
     </div>
 
+    <div id="vista-Productos" class="vista">
+        <table>
+            <thead>
+                <tr>
+                    <th>id_equipo</th>
+                    <th>nombre</th>
+                    <th>Modelo</th>
+                    <th>Tipo_Producto</th>
+                    <th>Precio</th>
+                    <th>Disponibilidad</th>
+                    <th>id_administrador</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-productos">
+                
+            </tbody>
+
+        </table>
+    </div>
+
 
     <div id="form-agregar" class="form-popup">
         <form onsubmit="return agregarTrabajador();">
@@ -89,17 +111,8 @@
             <button type="submit">Eliminar</button>
             <button type="button" onclick="cerrarFormulario('eliminar')">Cancelar</button>
         </form>
-    </div>
+    </div> 
 
-    <script>
-        function mostrarVista(vistaId) {
-            document.querySelectorAll('.vista').forEach(vista => {
-                vista.classList.remove('active');
-            });
-            document.getElementById(vistaId).classList.add('active');
-        }
-
-    </script>
 
     <script src="jss/trabajador.js"></script>
 </body>

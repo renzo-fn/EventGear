@@ -60,3 +60,10 @@ function mostrarFormulario(tipo) {
             alert('Trabajador no encontrado.');
             return false;
         }
+
+         function mostrarVista(vistaId) {
+            document.querySelectorAll('.vista').forEach(vista => {
+                vista.classList.remove('active');
+            });
+            document.getElementById(vistaId).classList.add('active');
+        }
