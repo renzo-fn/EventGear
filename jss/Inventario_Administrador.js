@@ -4,18 +4,17 @@ function mostrarVista(idVista) {
             document.getElementById(idVista).style.display = 'block';
         }
 
-        // Mostrar vista de productos al cargar la página por defecto
         window.onload = () => {
             mostrarVista('vista-Productos');
             cargarCatalogo();
         };
 
         function cargarCatalogo() {
-            fetch('http://localhost:3000/Catalogo')
+            fetch('http://localhost:3000/catalogo')
                 .then(response => response.json())
                 .then(data => {
                     const tabla = document.getElementById('tabla-productos');
-                    tabla.innerHTML = ''; // limpiar antes de cargar
+                    tabla.innerHTML = ''; 
                     data.forEach(producto => {
                         tabla.innerHTML += `
                             <tr>
