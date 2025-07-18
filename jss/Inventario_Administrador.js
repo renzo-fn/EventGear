@@ -43,22 +43,39 @@ function mostrarVista(idVista) {
 }
 
 function modificarCantidad(boton, cambio) {
+    const contenedor = boton.parentElement;
+    const cantidadSpan = contenedor.querySelector('.cantidad');
     const fila = boton.closest('tr');
-    const cantidadSpan = fila.querySelector('.cantidad');
     const disponibilidadTd = fila.querySelector('.disponibilidad');
 
     let cantidad = parseInt(cantidadSpan.textContent);
     cantidad += cambio;
-
     if (cantidad < 0) return;
 
     cantidadSpan.textContent = cantidad;
+    disponibilidadTd.textContent = cantidad === 0 ? "No disponible" : "Disponible";
 
-    if (cantidad === 0) {
-        disponibilidadTd.textContent = 'No disponible';
-    } else {
-        disponibilidadTd.textContent = 'Disponible';
-    }
 
-   
+    const id_equipo = fila.children[0].textContent;
+
+    fetch(`http://localhost:3000/catalogo/${id_equipo}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cantidad: cantidad }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al actualizar en la base de datos');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Cantidad actualizada correctamente en la BD:', data);
+    })
+    .catch(error => {
+        console.error('Error al actualizar:', error);
+        alert("Hubo un error al actualizar en la base de datos");
+    });
 }

@@ -3,7 +3,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
     const usuario = document.getElementById('usuario').value;
     const contraseña = document.getElementById('contraseña').value;
-    const rol = document.getElementById('rol').value.toLowerCase(); // asegurar minúsculas
+    const rol = document.getElementById('rol').value.toLowerCase(); 
 
     const payload = {
         usuario,
@@ -24,7 +24,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
         if (response.ok) {
             alert('✅ Inicio de sesión exitoso');
-            // Redireccionar a página del administrador (ajusta el nombre si es diferente)
             if (rol === 'administrador') {
                 window.location.href = 'admin.html';
             } else {
